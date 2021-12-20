@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="CHUYENHANGONLINE.Shipper.ShipperRegisterUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CHUYENHANGONLINE.Shipper"
+             mc:Ignorable="d" d:DesignWidth="500" Background="WhiteSmoke" Height="360" Width="460">
+    <StackPanel>
+        <Label Content="Đăng kí Shipper" 
+               Grid.ColumnSpan="2" 
+               HorizontalAlignment="Center"
+               FontSize="20"/>
+        <Grid Height="274">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Tên đăng nhập:" Grid.Row="1"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="UserName" Grid.Row="1" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Mật khẩu:" Grid.Row="2"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="Password" Grid.Row="2" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Họ tên:" Grid.Row="3"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="Name" Grid.Row="3" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Email:" Grid.Row="4"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="Email" Grid.Row="4" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Số điện thoại:" Grid.Row="5"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="Phone" Grid.Row="5" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Biển số xe:" Grid.Row="1"
+                        VerticalAlignment="Center"/>
+                <TextBox x:Name="VRP" Grid.Row="1" Grid.Column="2"
+                 VerticalAlignment="Center"/>
+
+                <Label Content="TK ngân hàng:" Grid.Row="2"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="BankAccount" Grid.Row="2" Grid.Column="2"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="CMND:" Grid.Row="3"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="CitizenId" Grid.Row="3" Grid.Column="2"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Địa chỉ:" Grid.Row="4"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="Address" Grid.Row="4" Grid.Column="2"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Khu vực:" Grid.Row="5"
+                   VerticalAlignment="Center"/>
+                <ComboBox x:Name="Area" Grid.Row="5" Grid.Column="2"
+                 VerticalAlignment="Center">
+                    <ComboBoxItem>Bình Tân</ComboBoxItem>
+                    <ComboBoxItem>Tân Phú</ComboBoxItem>
+                    <ComboBoxItem>Thủ Đức</ComboBoxItem>
+                    <ComboBoxItem>Tân Bình</ComboBoxItem>
+                    <ComboBoxItem>Gò Vấp</ComboBoxItem>
+                    <ComboBoxItem>Bình Thạnh</ComboBoxItem>
+                    <ComboBoxItem>Phú Nhuận</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Button x:Name="RegisterBtn" Content="Đăng kí" Width="200" Click="RegisterBtn_Click"/>
+    </StackPanel>
+</UserControl>

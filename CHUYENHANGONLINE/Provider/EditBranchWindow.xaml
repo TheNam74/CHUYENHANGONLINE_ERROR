@@ -1,0 +1,25 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Provider.EditBranchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Provider"
+        mc:Ignorable="d"
+        Title="EditBranchWindow" Height="300" Width="550" Loaded="EditBranchWindow_OnLoaded">
+    <Canvas>
+        <StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Địa chỉ hiện tại</Label>
+                    <TextBlock Text="{Binding Address}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Địa chỉ mới</Label>
+                    <TextBox Name="NewAddressTextBox" VerticalAlignment="Center" Width="300"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Button Canvas.Left="24" Canvas.Top="59" Click="ApplyChange_Click">Thay đổi</Button>
+
+    </Canvas>
+</Window>

@@ -1,0 +1,55 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Customer.OrderDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Customer"
+        mc:Ignorable="d"
+        Title="OrderDetailsWindow" Height="300" Width="400" Loaded="OrderDetailsWindow_OnLoaded">
+    <Canvas>
+        <StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Mã đơn hàng</Label>
+                    <TextBlock Text="{Binding OrdID}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Hình thức thanh toán</Label>
+                    <TextBlock Text="{Binding Payments}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Phí vận chuyển</Label>
+                    <TextBlock Text="{Binding ShipCost}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Tổng giá trị đơn hàng</Label>
+                    <TextBlock Text="{Binding TotalBill}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Địa chỉ giao</Label>
+                    <TextBlock Text="{Binding ShipAddress}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Tình trạng</Label>
+                    <TextBlock Text="{Binding Status}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Mã tài xế</Label>
+                    <TextBlock Text="{Binding ShipID}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Mã khách hàng</Label>
+                    <TextBlock Text="{Binding CusID}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Ngày đặt hàng</Label>
+                    <TextBlock Text="{Binding CreDate}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="200px">Ngày giao hàng</Label>
+                    <TextBlock Text="{Binding ShipDate}" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Canvas>
+</Window>

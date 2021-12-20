@@ -1,0 +1,40 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Customer.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Customer"
+        mc:Ignorable="d"
+        Title="CartWindow" Height="450" Width="800" Loaded="CartWindow_OnLoaded">
+    <StackPanel>
+        <Grid Height="350">
+        <ListView Name="CartView">
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}"></Style>
+            <ListView.Resources>
+                <ContextMenu x:Key="ItemContextMenu">
+                    <MenuItem Header="Xoá chi tiết" Name="DeleteOrderDetail" Click="BtnDeleteOrderDetailOnClick"/>
+                </ContextMenu>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="200" Header="Mã đối tác" DisplayMemberBinding="{Binding Path=ProviderID}" />
+                    <GridViewColumn Width="200" Header="Mã chi nhánh" DisplayMemberBinding="{Binding Path=BranchID}" />
+                    <GridViewColumn Width="200" Header="Mã sản phẩm" DisplayMemberBinding="{Binding Path=ProID}" />
+                    <GridViewColumn Width="200" Header="Số lượng" DisplayMemberBinding="{Binding Path=Amount}" />
+                    <GridViewColumn Width="200" Header="Thành tiền" DisplayMemberBinding="{Binding Path=OrderDetailBill}" />
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
+                    <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+        <Button Name="checkOutView" 
+                Click="CheckOutView_OnClick" 
+                Width="200px" 
+                HorizontalAlignment="Center"
+                Margin="20">Xác nhận mua hàng</Button>
+    </StackPanel>
+</Window>

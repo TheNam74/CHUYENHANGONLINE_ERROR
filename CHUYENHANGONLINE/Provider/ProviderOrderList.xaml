@@ -1,0 +1,39 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Provider.ProviderOrderList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Provider"
+        mc:Ignorable="d"
+        Title="ProviderOrderList" Height="450" Width="800" Loaded="ProviderOrderList_OnLoaded">
+    <Grid>
+        <ListView x:Name="OrderList">
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}"></Style>
+            <!--Cài context menu để chuột phải ở đây-->
+            <ListView.Resources>
+                <ContextMenu x:Key="ItemContextMenu">
+                    <MenuItem Name="ContractExtendMenuItem" Header="Sẵn sàng giao" Click="ReadyToShip_Click" />
+                    <MenuItem Header="Xem chi tiết"  Click="OrderDetail_Click"/>
+                </ContextMenu>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Thanh toán"     Width="130" DisplayMemberBinding="{Binding Payments}" />
+                    <GridViewColumn Header="Phí ship"       Width="110" DisplayMemberBinding="{Binding ShipCost}"/>
+                    <GridViewColumn Header="Tổng tiền"      Width="120" DisplayMemberBinding="{Binding TotalBill}" />
+                    <GridViewColumn Header="Địa chỉ giao"   Width="180" DisplayMemberBinding="{Binding ShipAddress}"/>
+                    <GridViewColumn Header="Tình trạng"     Width="150" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Header="Mã shipper"     Width="130" DisplayMemberBinding="{Binding ShipID}"/>
+                    <GridViewColumn Header="Ngày đặt"       Width="150" DisplayMemberBinding="{Binding CreDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}"/>
+                    <GridViewColumn Header="Ngày giao"      Width="150" DisplayMemberBinding="{Binding ShipDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}" />
+                </GridView>
+            </ListView.View>
+            <!--Thêm context menu để chuột phải ở đây-->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
+                    <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</Window>

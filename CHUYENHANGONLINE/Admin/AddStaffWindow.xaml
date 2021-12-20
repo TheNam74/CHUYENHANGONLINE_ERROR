@@ -1,0 +1,35 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Admin.AddStaffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Admin"
+        mc:Ignorable="d"
+        Title="Thêm nhân viên" Height="250" Width="300" MinHeight="250" MinWidth="300"
+        ResizeMode="NoResize">
+    <Canvas>
+        <StackPanel Canvas.Left="50" Canvas.Top="10">
+            <StackPanel Orientation="Horizontal">
+                <Label Width="100">Tên đăng nhâp</Label>
+                <TextBox Name="UsernameTextBox" Width="100"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="100">Mật khẩu</Label>
+                <PasswordBox Name="PasswordTextBox" Width="100"></PasswordBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="100">Họ tên</Label>
+                <TextBox Name="NameTextBox" Width="100"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="100">Email</Label>
+                <TextBox Name="EmailTextBox" Width="100"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="100">SĐT</Label>
+                <TextBox Name="TelTextBox" Width="100"></TextBox>
+            </StackPanel>
+            <Button Margin="0,20,0,0" Height="25" Width="70" Name="AddButton" Click="AddButton_OnClick" IsDefault="True">Thêm</Button>
+        </StackPanel>
+    </Canvas>
+</Window>

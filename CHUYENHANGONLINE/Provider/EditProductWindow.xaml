@@ -1,0 +1,49 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Provider.EditProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Provider"
+        mc:Ignorable="d"
+        Title="EditProductWindow" Height="300" Width="550" Loaded="EditProductWindow_OnLoaded">
+    <Canvas>
+        <StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Mã đối tác</Label>
+                    <TextBlock Name="ProviderId"  VerticalAlignment="Center" Width="300"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Mã chi nhánh</Label>
+                    <TextBlock Name="BranchId"  VerticalAlignment="Center" Width="300"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Mã sản phẩm</Label>
+                    <TextBlock Name="ProId"  VerticalAlignment="Center" Width="300"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Tên sản phẩm</Label>
+                    <TextBox Name="NewProName"  VerticalAlignment="Center" Width="300"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Thông tin</Label>
+                    <TextBox Name="NewProInfo" VerticalAlignment="Center" Width="300"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Đơn giá</Label>
+                    <TextBox Name="NewProPrice" VerticalAlignment="Center" Width="300"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Đơn vị tính</Label>
+                    <TextBox Name="NewProUnit"  VerticalAlignment="Center" Width="300"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="100px">Số lượng</Label>
+                    <TextBox Name="NewProAmount"  VerticalAlignment="Center" Width="300"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Button Canvas.Left="244" Canvas.Top="215" Click="ApplyChange_Click">Thay đổi</Button>
+
+    </Canvas>
+</Window>

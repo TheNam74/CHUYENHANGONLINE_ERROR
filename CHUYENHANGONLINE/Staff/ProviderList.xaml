@@ -1,0 +1,62 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Staff.ProviderList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Staff"
+        mc:Ignorable="d"
+        Title="ProviderList" Height="450" Width="800" MinHeight="450" MinWidth="800" Loaded="ProviderList_OnLoaded">
+    <Window.Resources>
+        <local:IsOutOfDateConverter x:Key="IsOutOfDateConverter" />
+    </Window.Resources>
+    <Grid>
+        <ListView Name="ProviderListView">
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}">
+            </Style>
+            <ListView.Resources>
+                <ContextMenu x:Key="ItemContextMenu">
+                    <MenuItem Name="ContractExtendMenuItem" Header="Gia hạn" Click="ContractExtendMenuItem_OnClick"/>
+                </ContextMenu>
+                
+            </ListView.Resources>
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="200" Header="Tên đối tác" DisplayMemberBinding="{Binding Path=Name}" />
+                    <GridViewColumn Width="200" Header="Hạn hợp đồng" DisplayMemberBinding="{Binding ContractDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}' }" />
+                    <GridViewColumn Width="200" Header="Người đại diện" DisplayMemberBinding="{Binding Path=Represent}" />
+                    <GridViewColumn Width="200" Header="Thành phố" DisplayMemberBinding="{Binding Path=City}" />
+                    <GridViewColumn Width="200" Header="Quận" DisplayMemberBinding="{Binding Path=District}" />
+                    <GridViewColumn Width="200" Header="Địa chỉ" DisplayMemberBinding="{Binding Path=Address}" />
+
+                </GridView>
+
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+
+                <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
+                    
+                     <Style.Triggers>
+                         <!--Trigger khi còn hạn hợp đồng-->
+                         <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="0">
+                             <Setter Property="Background" Value="CadetBlue" />
+                            <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                        </DataTrigger>
+                         <!--Trigger khi hết hạn hợp đồng-->
+                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="1">
+                            <Setter Property="Background" Value="#FAEDC6" />
+                            <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                         </DataTrigger>
+                         <!--Trigger khi hợp đồng chưa được duyệt-->
+                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="-1">
+                             <Setter Property="Background" Value="WhiteSmoke" />
+                             <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                         </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+                
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+    </Grid>
+</Window>

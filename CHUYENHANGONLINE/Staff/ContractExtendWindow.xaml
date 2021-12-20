@@ -1,0 +1,58 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Staff.ContractExtendWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Staff"
+        mc:Ignorable="d"
+        Title="Gia hạn hợp đồng" Height="350" Width="570" MinHeight="350" MinWidth="570"
+        Loaded="ContractExtendWindow_OnLoaded">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
+
+
+            <Label Margin="0,0,0,20" x:Name="ProviderNameLabel" FontSize="20" Foreground="GhostWhite" Background="CadetBlue" Width="236" HorizontalContentAlignment="Center"/>
+
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="0,0,20,0">
+                    
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="Mã số thuế:"/>
+                        <TextBlock x:Name="TaxCodeTextBlock"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="Hoa hồng:"/>
+                        <TextBlock x:Name="CommissionTextBlock"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="Email:"/>
+                        <TextBlock x:Name="EmailTextBlock"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="Số đơn mỗi ngày:"/>
+                        <TextBlock x:Name="OrderAmountTextBlock" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="Loại hàng:"/>
+                        <TextBlock x:Name="ProductTypeTextBlock" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="Số chi nhánh:"/>
+                        <TextBlock x:Name="BranchAmountTextBlock" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <Label Width="120" Content="SĐT:"/>
+                        <TextBlock x:Name="TelTextBlock"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Gia hạn</Label>
+            <DatePicker Height="25" x:Name="DatePicker" Width="115" />
+            <Button x:Name="SaveButton" Click="SaveButton_OnClick" Margin="0,10,0,0" Content="Lưu"/>
+        </StackPanel>
+    </Grid>
+</Window>

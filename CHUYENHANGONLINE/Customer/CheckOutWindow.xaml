@@ -1,0 +1,28 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Customer.CheckOutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Customer"
+        mc:Ignorable="d"
+        Title="CheckOutWindow" Height="450" Width="800" Loaded="CheckOutWindow_OnLoaded">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Width="120px">Hình thức thanh toán</Label>
+            <RadioButton Name="Onl" GroupName="Payments" IsChecked="True" Checked="Onl_OnChecked">ONL</RadioButton>
+            <RadioButton Name="Cod" GroupName="Payments" Checked="Cod_OnChecked">COD</RadioButton>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Width="120px">Số nhà: </Label>
+            <TextBox Name="AddressNumber" Width="200px"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Width="120px">Khu vuc giao hang</Label>
+            <ComboBox Name="ComboBoxZone">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel>
+            <Button Name="Confirm" Click="Confirm_OnClicks" Width="200px" HorizontalAlignment="Center">Confirm Purchase</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

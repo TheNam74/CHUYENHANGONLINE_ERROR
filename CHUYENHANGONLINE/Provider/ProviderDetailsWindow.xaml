@@ -1,0 +1,65 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Provider.ProviderDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Provider"
+        mc:Ignorable="d"
+        Title="ProviderDetailsWindow" Height="450" Width="357" Loaded="ProviderDetails_Loaded" Background="GhostWhite">
+    <Canvas>
+        <StackPanel Canvas.Left="28" Canvas.Top="40">
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Mã đối tác</Label>
+                <TextBlock Text="{Binding Id}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Mã số thuế</Label>
+                <TextBlock Text="{Binding TaxCode}"  VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Địa chỉ</Label>
+                <TextBlock Text="{Binding Address}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Tên</Label>
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Số điện thoại</Label>
+                <TextBlock Text="{Binding Tel}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Người đại diện</Label>
+                <TextBlock Text="{Binding Represent}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Thành phố</Label>
+                <TextBlock Text="{Binding City}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Quận</Label>
+                <TextBlock Text="{Binding District}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Email</Label>
+                <TextBlock Text="{Binding Email}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Hạn hợp đồng</Label>
+                <TextBlock Text="{Binding ContractDate, StringFormat=dd-MM-yyyy}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Số đơn mỗi ngày</Label>
+                <TextBlock Text="{Binding OrderAmount}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Width="120">Loại hàng</Label>
+                <TextBlock Text="{Binding ProductType}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel><StackPanel Orientation="Horizontal">
+                <Label Width="120">Số chi nhánh</Label>
+                <TextBlock Text="{Binding BranchAmount}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+    </Canvas>
+</Window>

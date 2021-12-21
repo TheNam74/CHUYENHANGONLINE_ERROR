@@ -18,7 +18,7 @@ namespace CHUYENHANGONLINE
     public partial class MainWindow : Window
     {
         string strCon =
-                @"Data Source=DESKTOP-IF5CCEF\PC1;Initial Catalog=QL_CHUYENHANGONLINE;Integrated Security=True";
+                @"Data Source=DEONE\SQLEXPRESS;Initial Catalog = QL_CHUYENHANGONLINE; Integrated Security = True";
         public static SqlConnection sqlCon = null; //cho tất cả window khác xài ké
         public static string Actor;
         public static IUser User;

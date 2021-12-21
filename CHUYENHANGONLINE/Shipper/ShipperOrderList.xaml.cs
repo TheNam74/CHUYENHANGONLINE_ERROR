@@ -55,6 +55,10 @@ namespace CHUYENHANGONLINE.Shipper
             
             while (reader.Read())
             {
+                if (reader.GetString(5) == "chưa duyệt")
+                {
+                    continue;
+                }
                 Order order = new Order
                 {
                     OrdID = reader.GetInt32(0),
@@ -110,7 +114,7 @@ namespace CHUYENHANGONLINE.Shipper
         private void PickOrder_Click(object sender, RoutedEventArgs e)
         {
             var order = OrderList.SelectedItem as Order;
-            if(order.Status!="đang chờ"||order.Status!="chờ duyệt")
+            if(order.Status!="đang chờ"&&order.Status!="chờ duyệt")
             {
                 MessageBox.Show("Không thể nhận đơn hàng");
             }

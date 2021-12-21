@@ -61,57 +61,69 @@ namespace CHUYENHANGONLINE.Shipper
             //execute query
             reader = sqlCmd.ExecuteReader();
         }
+
+        DataSet GetDataSetFromProc (string query, List<SqlParameter> parameters)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = query;
+
+            if (parameters != null)
+            {
+                foreach (var param in parameters)
+                {
+                    sqlCmd.Parameters.Add(param);
+                }
+            }
+
+            sqlCmd.Connection = MainWindow.sqlCon;
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlCmd);
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            return ds;
+        }
         private void PickedOrderList_Loaded(object sender, RoutedEventArgs e)
         {
-            _shipper = MainWindow.User as Shipper;
-            SqlDataReader reader = null;
-
-            string storedProc = $"usp_select_mataixedonhang";
-            SqlParameter param = new SqlParameter("@matx", SqlDbType.Int);
-            param.Value = _shipper.Id;
-
-            List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(param);
-
-            ExecuteQuery(storedProc, "storedProc", ref reader, parameters);
-            while (reader.Read())
-            {
-                Order order = new Order
-                {
-                    OrdID = reader.GetInt32(0),
-                    Payments = reader.GetString(1),
-                    ShipCost = reader.GetInt32(2),
-                    TotalBill = reader.GetInt32(3),
-                    ShipAddress = reader.GetString(4),
-                    Status = reader.GetString(5),
-                    ShipID = reader.SafeGetInt(6),
-                    CusID = reader.GetInt32(7),
-                    CreDate = reader.SafeGetDate(8),
-                    ShipDate = reader.SafeGetDate(9)
-                };
-                _pickedOrderList.Add(order);
-            }
-            reader.Close();
             PickedOrderList.Items.Clear();
             PickedOrderList.ItemsSource = _pickedOrderList;
 
-            parameters.Clear();
+            _shipper = MainWindow.User as Shipper;
 
             string query = $"usp_select_phivanchuyendonhang";
+
             SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
             param2.Value = _shipper.Id;
 
-
+            List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(param2);
 
-            ExecuteQuery(query, "storedProc", ref reader, parameters);
-            while (reader.Read())
+            DataSet result = GetDataSetFromProc(query, parameters);
+
+            NumOfDeliveredOrder.Text = result.Tables[0].Rows[0][0].ToString();
+            Revenue.Text =  result.Tables[0].Rows[0][1].ToString();
+
+            for(var i = 0; i < result.Tables[1].Rows.Count; i++)
             {
-                NumOfDeliveredOrder.Text = reader.SafeGetInt(0).ToString();
-                Revenue.Text = reader.SafeGetInt(1).ToString();
+                Order order = new Order
+                {
+                    OrdID =       (int)(result.Tables[1].Rows[i][0]),
+                    Payments =    result.Tables[1].Rows[i][1].ToString(),
+                    ShipCost =    (int)result.Tables[1].Rows[i][2],
+                    TotalBill =   (int)result.Tables[1].Rows[i][3],
+                    ShipAddress = result.Tables[1].Rows[i][4].ToString(),
+                    Status =      result.Tables[1].Rows[i][5].ToString(),
+                    ShipID =      (int)result.Tables[1].Rows[i][6],
+                    CusID =       (int)result.Tables[1].Rows[i][7],
+                    CreDate =     (DateTime)result.Tables[1].Rows[i][8],
+                    ShipDate = result.Tables[1].Rows[i][9] == DBNull.Value?null: (DateTime?)result.Tables[1].Rows[i][9],
+                };
+                _pickedOrderList.Add(order);
 
             }
-            reader.Close();
+            MainWindow.sqlCon.Close();
         }
 
         private void UpdateShipSuccess_Click(object sender, RoutedEventArgs e)

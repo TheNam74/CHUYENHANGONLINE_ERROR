@@ -92,7 +92,8 @@ namespace CHUYENHANGONLINE.Shipper
 
             _shipper = MainWindow.User as Shipper;
 
-            string query = $"usp_select_phivanchuyendonhang";
+            //string query = $"usp_select_phivanchuyendonhang";
+            string query = $"usp_cau5_3a";
 
             SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
             param2.Value = _shipper.Id;
@@ -123,7 +124,7 @@ namespace CHUYENHANGONLINE.Shipper
                 _pickedOrderList.Add(order);
 
             }
-            MainWindow.sqlCon.Close();
+            //MainWindow.sqlCon.Close();
         }
 
         private void UpdateShipSuccess_Click(object sender, RoutedEventArgs e)
@@ -136,12 +137,12 @@ namespace CHUYENHANGONLINE.Shipper
             }
             else
             {
-                string query = $"usp_update_tinhtrangdonhang";
+                string query = $"USP_CAU5_2A";
                 SqlParameter param = new SqlParameter("@madh", SqlDbType.Int);
                 SqlParameter param2 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
                 SqlParameter param3 = new SqlParameter("@ngaygiao", SqlDbType.Date);
                 param.Value = order.OrdID;
-                param2.Value = "đã giao";
+                param2.Value = "từ từ chờ 1 tí";//-----------------------------------------
                 param3.Value = DateTime.Today;
 
                 List<SqlParameter> parameters = new List<SqlParameter>();

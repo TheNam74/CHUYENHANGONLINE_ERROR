@@ -41,7 +41,7 @@ namespace CHUYENHANGONLINE.Staff
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "USP_XEMDANHSACH_HOPDONGDOITAC";
+            sqlCmd.CommandText = "USP_CAU4_4b";// gây ra lỗi error04 dirty read
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())

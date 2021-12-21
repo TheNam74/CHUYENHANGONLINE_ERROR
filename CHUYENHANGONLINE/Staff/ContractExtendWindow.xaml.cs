@@ -47,7 +47,7 @@ namespace CHUYENHANGONLINE.Staff
             {
                 _provider.ContractDate = DatePicker.SelectedDate;
 
-                using (SqlCommand cmd = new SqlCommand("USP_GIAHANHOPDONG_DOITAC", MainWindow.sqlCon))
+                using (SqlCommand cmd = new SqlCommand("USP_CAU4_4a", MainWindow.sqlCon))//gây ra error04 dirty read
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@maDoiTac", SqlDbType.VarChar).Value = _provider.Id;

@@ -46,8 +46,8 @@ namespace CHUYENHANGONLINE.Staff
             if (_provider.ContractDate != DatePicker.SelectedDate)
             {
                 _provider.ContractDate = DatePicker.SelectedDate;
-
-                using (SqlCommand cmd = new SqlCommand("USP_GIAHANHOPDONG_DOITAC", MainWindow.sqlCon))
+                //using (SqlCommand cmd = new SqlCommand("USP_GIAHANHOPDONG_DOITAC", MainWindow.sqlCon))
+                using (SqlCommand cmd = new SqlCommand("USP_CAU4_5a", MainWindow.sqlCon))//gây ra lỗi deadlock conversion Tung - err5
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@maDoiTac", SqlDbType.VarChar).Value = _provider.Id;

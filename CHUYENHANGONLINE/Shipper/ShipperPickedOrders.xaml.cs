@@ -137,29 +137,46 @@ namespace CHUYENHANGONLINE.Shipper
             }
             else
             {
-                string query = $"USP_CAU5_2A";
+                string storedProc = $"USP_CAU5_2A";
+
                 SqlParameter param = new SqlParameter("@madh", SqlDbType.Int);
                 SqlParameter param2 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
                 SqlParameter param3 = new SqlParameter("@ngaygiao", SqlDbType.Date);
+                SqlParameter param11 = new SqlParameter("@returnvalue", SqlDbType.Int);
+
                 param.Value = order.OrdID;
-                param2.Value = "từ từ chờ 1 tí";//-----------------------------------------
-                param3.Value = DateTime.Today;
+                param2.Value = "đã giao";//-----------------------------------------
+                param3.Value = null;
 
-                List<SqlParameter> parameters = new List<SqlParameter>();
-                parameters.Add(param);
-                parameters.Add(param2);
-                parameters.Add(param3);
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.Connection = MainWindow.sqlCon;
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.CommandText = storedProc;
 
-                SqlDataReader reader = null;
-                ExecuteQuery(query, "storedProc", ref reader, parameters);
+                sqlCmd.Parameters.Add(param);
+                sqlCmd.Parameters.Add(param2);
+                sqlCmd.Parameters.Add(param3);
+                sqlCmd.Parameters.Add(param11);
+
+                sqlCmd.Parameters["@returnvalue"].Direction = ParameterDirection.ReturnValue;
+
+                SqlDataReader reader = sqlCmd.ExecuteReader();
                 reader.Close();
-                parameters.Clear();
+
+                int checkError = (int)sqlCmd.Parameters["@returnvalue"].Value;
+
+                if (checkError == -1)
+                {
+                    MessageBox.Show("Xảy ra lỗi khi xác nhận giao hàng");
+                    return;
+                }
 
                 //exec SP query doanh thu cua tai xe
-                query = $"usp_select_phivanchuyendonhang";
+                string query = $"usp_select_phivanchuyendonhang";
                 SqlParameter param4 = new SqlParameter("@matx", SqlDbType.Int);
                 param4.Value = _shipper.Id;
 
+                List<SqlParameter> parameters = new List<SqlParameter>();
                 parameters.Add(param4);
             
                 ExecuteQuery(query, "storedProc", ref reader, parameters);

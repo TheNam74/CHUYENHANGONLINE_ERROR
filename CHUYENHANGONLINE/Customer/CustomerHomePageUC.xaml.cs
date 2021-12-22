@@ -75,7 +75,7 @@ namespace CHUYENHANGONLINE.Customer
             BindingList<Order> orderList = new();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.CommandText = "USP_XEMDANHSACHDONHANG_KHACHHANG";
+            sqlCmd.CommandText = "USP_CAU5_2B";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlParameter maKHParameter = new SqlParameter("@MAKH", SqlDbType.Int);
             maKHParameter.Value = MainWindow.User.Id;

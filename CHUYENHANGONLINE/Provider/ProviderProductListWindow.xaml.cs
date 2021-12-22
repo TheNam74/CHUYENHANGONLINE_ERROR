@@ -90,5 +90,24 @@ namespace CHUYENHANGONLINE.Provider
             ProductListView.ItemsSource = _productList;
         }
 
+        private void DeleteProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Product _product = _productList[ProductListView.SelectedIndex];
+
+            SqlCommand sqlCmd = new SqlCommand($"USP_CAU1_1b", MainWindow.sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+
+            //create parameter 
+            sqlCmd.Parameters.Add(new SqlParameter("@MADT", _product.ProviderID));
+            sqlCmd.Parameters.Add(new SqlParameter("@MACN", _product.BranchID));
+            sqlCmd.Parameters.Add(new SqlParameter("@MASP", _product.ProID));
+
+            //execute query
+            int ret = sqlCmd.ExecuteNonQuery();
+
+            MessageBox.Show(ret != -1 ? $"Xóa thành công({ret})" : "Xóa thất bại");
+
+            _productList.RemoveAt(ProductListView.SelectedIndex);
+        }
     }
 }

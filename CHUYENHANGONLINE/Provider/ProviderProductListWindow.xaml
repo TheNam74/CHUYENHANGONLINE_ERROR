@@ -14,6 +14,7 @@
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
                     <MenuItem Name="ContractExtendMenuItem" Header="Chỉnh sửa sản phẩm" Click="EditProduct_Click" />
+                    <MenuItem  Header="Xóa sản phẩm" Click="DeleteProduct_Click" />
                 </ContextMenu>
             </ListView.Resources>
             <ListView.View >

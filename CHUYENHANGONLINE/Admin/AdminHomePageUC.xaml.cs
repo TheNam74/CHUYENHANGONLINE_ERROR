@@ -1,21 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using CHUYENHANGONLINE.Staff;
 
 namespace CHUYENHANGONLINE.Admin
 {
@@ -147,7 +134,7 @@ namespace CHUYENHANGONLINE.Admin
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "USP_DANHSACH_CUSTOMER";
+            sqlCmd.CommandText = "USP_CAU2_2b";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())

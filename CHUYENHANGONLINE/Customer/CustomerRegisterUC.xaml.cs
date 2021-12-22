@@ -20,7 +20,7 @@ namespace CHUYENHANGONLINE.Customer
 
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.CommandText = "USP_DANGKITAIKHOANKHACHHANG_KHACHHANG";
+            sqlCmd.CommandText = "USP_CAU2_2a";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlParameter userNameParameter = new SqlParameter("@TENDANGNHAP", SqlDbType.NVarChar);
             SqlParameter passwordParameter = new SqlParameter("@MATKHAU", SqlDbType.NVarChar);

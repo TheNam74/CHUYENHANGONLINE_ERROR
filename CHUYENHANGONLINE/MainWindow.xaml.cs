@@ -1,13 +1,11 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
-
-using System.Windows;
-
-using CHUYENHANGONLINE.Admin;
+﻿using CHUYENHANGONLINE.Admin;
 using CHUYENHANGONLINE.Provider;
 using CHUYENHANGONLINE.Shipper;
 using CHUYENHANGONLINE.Staff;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows;
 
 
 namespace CHUYENHANGONLINE
@@ -18,7 +16,7 @@ namespace CHUYENHANGONLINE
     public partial class MainWindow : Window
     {
         string strCon =
-                @"Data Source=DESKTOP-IF5CCEF\PC1;Initial Catalog=QL_CHUYENHANGONLINE;Integrated Security=True";
+                @"Data Source=LAPTOP-VRPVMK5E\SQLEXPRESS;Initial Catalog=QL_CHUYENHANGONLINE;Integrated Security=True";
         public static SqlConnection sqlCon = null; //cho tất cả window khác xài ké
         public static string Actor;
         public static IUser User;

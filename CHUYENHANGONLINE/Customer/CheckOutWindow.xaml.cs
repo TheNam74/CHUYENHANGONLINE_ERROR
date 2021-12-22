@@ -47,7 +47,7 @@ namespace CHUYENHANGONLINE.Customer
             order.ShipAddress = AddressNumber.Text + ", " + ComboBoxZone.Text;
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
-            sqlCmd.CommandText = "USP_THEMDONHANG_KHACHHANG";
+            sqlCmd.CommandText = "USP_CAU2_1a";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlParameter paymentsParameter = new SqlParameter("@HINHTHUCTHANHTOAN", SqlDbType.VarChar);
             paymentsParameter.Value = order.Payments;
@@ -60,7 +60,6 @@ namespace CHUYENHANGONLINE.Customer
             sqlCmd.Parameters.Add(paymentsParameter);
             sqlCmd.Parameters.Add(shipAddressParameter);
             sqlCmd.Parameters.Add(LoginIdParameter);
-
             sqlCmd.ExecuteNonQuery();
             order.OrdID = (int)returnValueParameter.Value;
             foreach (var orderDetail in CustomerHomePageUC.CartItem)

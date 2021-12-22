@@ -71,7 +71,7 @@ namespace CHUYENHANGONLINE.Provider
                 return;
             }
             //create query for stored procedure
-            SqlCommand sqlCmd = new SqlCommand($"USP_SUASANPHAM_DOITAC", MainWindow.sqlCon);
+            SqlCommand sqlCmd = new SqlCommand($"USP_CAU1_4a", MainWindow.sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
 
             //create parameter 

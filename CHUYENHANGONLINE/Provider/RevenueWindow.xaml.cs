@@ -54,9 +54,10 @@ namespace CHUYENHANGONLINE.Provider
                 MessageBox.Show($"{_provider.Id}");
             }
 
-            Revenue.Text = reader.SafeGetInt(0).ToString();
+            int ?revenue= reader.SafeGetInt(0);
 
-            reader.Close();
+            if(revenue!=null)
+                Revenue.Text = revenue.ToString();
         }
     }
 }

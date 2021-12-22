@@ -34,7 +34,8 @@ namespace CHUYENHANGONLINE.Provider
             _provider = MainWindow.User as Provider;
             //create query for stored procedure
             SqlCommand sqlCmd = new SqlCommand();
-            string query = $"USP_TINHDOANHTHU_DOITAC";
+            //string query = $"USP_TINHDOANHTHU_DOITAC";
+            string query = $"USP_CAU4_3a";
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.CommandText = query;
 
@@ -54,7 +55,7 @@ namespace CHUYENHANGONLINE.Provider
                 MessageBox.Show($"{_provider.Id}");
             }
 
-            int ?revenue= reader.SafeGetInt(0);
+            double ?revenue= reader.SafeGetDouble(0);
 
             if(revenue!=null)
                 Revenue.Text = revenue.ToString();

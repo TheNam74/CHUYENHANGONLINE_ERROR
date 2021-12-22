@@ -124,7 +124,8 @@ namespace CHUYENHANGONLINE.Shipper
             }
             else
             {
-                string query = $"usp_update_tinhtrangdonhang";
+                //string query = $"usp_update_tinhtrangdonhang";
+                string query = $"USP_CAU4_3b";
                 SqlParameter param = new SqlParameter("@madh", SqlDbType.Int);
                 SqlParameter param2 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
                 SqlParameter param3 = new SqlParameter("@ngaygiao", SqlDbType.Date);

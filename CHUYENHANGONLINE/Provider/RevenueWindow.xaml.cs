@@ -35,7 +35,7 @@ namespace CHUYENHANGONLINE.Provider
             //create query for stored procedure
             SqlCommand sqlCmd = new SqlCommand();
             //string query = $"USP_TINHDOANHTHU_DOITAC";
-            string query = $"USP_CAU4_3a";
+            string query = $"USP_CAU4_1a";//gây lỗi phantom
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.CommandText = query;
 

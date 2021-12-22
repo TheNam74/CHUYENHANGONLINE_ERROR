@@ -109,5 +109,38 @@ namespace CHUYENHANGONLINE.Provider
 
             _productList.RemoveAt(ProductListView.SelectedIndex);
         }
+
+        private void DetailsProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Product _product = _productList[ProductListView.SelectedIndex];
+
+            //create query for stored procedure
+            SqlCommand sqlCmd = new SqlCommand();
+            string query = $"USP_CAU1_2a";
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = query;
+
+            //create parameter 
+
+            //add parameter to stored procedure
+            sqlCmd.Parameters.Add(new SqlParameter("@MADT", _product.ProviderID));
+            sqlCmd.Parameters.Add(new SqlParameter("@MACN", _product.BranchID));
+            sqlCmd.Parameters.Add(new SqlParameter("@MASP", _product.ProID));
+            //connection to database
+            sqlCmd.Connection = MainWindow.sqlCon;
+            //execute query
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+
+            if (!reader.Read())
+            {
+                MessageBox.Show($"khong ton tai san pham");
+            }
+            else
+            {
+                MessageBox.Show(reader.GetString(3));
+            }
+
+
+        }
     }
 }

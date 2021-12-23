@@ -55,7 +55,7 @@ namespace CHUYENHANGONLINE.Shipper
             
             while (reader.Read())
             {
-                if (reader.GetString(5) == "chưa duyệt")
+                if (reader.GetString(5) == "chưa duyệt"||reader.GetString(5)=="đã giao")
                 {
                     continue;
                 }

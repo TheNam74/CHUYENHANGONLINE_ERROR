@@ -93,7 +93,7 @@ namespace CHUYENHANGONLINE.Shipper
             _shipper = MainWindow.User as Shipper;
 
             //string query = $"usp_select_phivanchuyendonhang";
-            string query = $"usp_cau5_3a";
+            string query = $"usp_select_phivanchuyendonhang";
 
             SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
             param2.Value = _shipper.Id;

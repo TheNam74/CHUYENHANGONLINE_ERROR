@@ -93,7 +93,7 @@ namespace CHUYENHANGONLINE.Shipper
             _shipper = MainWindow.User as Shipper;
 
             //string query = $"usp_select_phivanchuyendonhang";
-            string query = $"usp_select_phivanchuyendonhang";
+            string query = $"usp_cau5_3a";
 
             SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
             param2.Value = _shipper.Id;
@@ -137,7 +137,7 @@ namespace CHUYENHANGONLINE.Shipper
             }
             else
             {
-                string storedProc = $"USP_CAU5_2A";
+                string storedProc = $"USP_CAU5_3b";
 
                 SqlParameter param = new SqlParameter("@madh", SqlDbType.Int);
                 SqlParameter param2 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
@@ -146,7 +146,7 @@ namespace CHUYENHANGONLINE.Shipper
 
                 param.Value = order.OrdID;
                 param2.Value = "đã giao";//-----------------------------------------
-                param3.Value = null;
+                param3.Value = DateTime.Today;
 
                 SqlCommand sqlCmd = new SqlCommand();
                 sqlCmd.Connection = MainWindow.sqlCon;

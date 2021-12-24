@@ -62,6 +62,11 @@ namespace CHUYENHANGONLINE.Customer
             sqlCmd.Parameters.Add(LoginIdParameter);
             sqlCmd.ExecuteNonQuery();
             order.OrdID = (int)returnValueParameter.Value;
+            if (order.OrdID == -1)
+            {
+                MessageBox.Show("Them don hang that bai");
+                return;
+            }
             foreach (var orderDetail in CustomerHomePageUC.CartItem)
             {
                 SqlCommand sqlOrderDetail = new SqlCommand();

@@ -67,7 +67,7 @@ namespace CHUYENHANGONLINE.Customer
             {
                 SqlCommand sqlOrderDetail = new SqlCommand();
                 sqlOrderDetail.CommandType = CommandType.StoredProcedure;
-                sqlOrderDetail.CommandText = "USP_THEMCHITIETDH_KHACHHANG";
+                sqlOrderDetail.CommandText = "USP_CAU2_3b";
                 sqlOrderDetail.Connection = MainWindow.sqlCon;
                 SqlParameter ordIdParameter = new SqlParameter("@MADH", SqlDbType.Int);
                 SqlParameter branchParameter = new SqlParameter("@MACN", SqlDbType.Int);
